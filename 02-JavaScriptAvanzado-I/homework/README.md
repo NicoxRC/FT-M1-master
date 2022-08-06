@@ -28,6 +28,12 @@ c(8,9,10);
 console.log(b);
 console.log(x);
 ```
+10
+8
+8
+9
+10
+1
 
 ```javascript
 console.log(bar);
@@ -37,6 +43,7 @@ function foo() { console.log('Hola!'); }
 var bar = 1;
 baz = 2;
 ```
+undefined
 
 ```javascript
 var instructor = "Tony";
@@ -45,6 +52,7 @@ if(true) {
 }
 console.log(instructor);
 ```
+Franco
 
 ```javascript
 var instructor = "Tony";
@@ -57,6 +65,9 @@ console.log(instructor);
 })();
 console.log(instructor);
 ```
+Tony
+Franco
+Tony
 
 ```javascript
 var instructor = "Tony";
@@ -70,6 +81,11 @@ if (true) {
 console.log(instructor);
 console.log(pm);
 ```
+The Flash
+Reverse Flash
+The flash
+Franco
+
 ### Coerción de Datos
 
 ¿Cuál crees que será el resultado de la ejecución de estas operaciones?:
@@ -92,6 +108,22 @@ parseInt("09")
 3>2>1
 [] == ![]
 ```
+2
+6
+9px
+$45
+2
+NaN
+infinity
+[0]
+9
+2
+5
+5
+5
+23
+false
+true
 
 > Si te quedó alguna duda repasá con [este artículo](http://javascript.info/tutorial/object-conversion).
 
