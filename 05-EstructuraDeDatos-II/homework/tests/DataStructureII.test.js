@@ -4,7 +4,7 @@ const {
   Node,
   LinkedList,
   HashTable
-} = require('../homework');
+} = require('../homework.js');
 
 describe('Una linked list', function() {
   var linkedList;
