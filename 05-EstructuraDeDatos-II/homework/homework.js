@@ -1,8 +1,4 @@
 "use strict";
-
-const { cleanUrl } = require("@11ty/eleventy-cache-assets/src/RemoteAssetCache");
-const { arrayReplaceAt } = require("markdown-it/lib/common/utils");
-
 /*
 Implementar la clase LinkedList, definiendo los siguientes métodos:
   - add: agrega un nuevo nodo al final de la lista;
@@ -29,11 +25,11 @@ LinkedList.prototype.add = function (value) {
     }
     current.next = newNode;
   }
-}
+};
+
 LinkedList.prototype.remove = function () {
-  if (!this.head) {
-    return null;
-  } else if (!this.head.next) {
+  if (!this.head) return null;
+  if (!this.head.next) {
     const value = this.head.value;
     this.head = null;
     return value;
@@ -42,18 +38,18 @@ LinkedList.prototype.remove = function () {
   while (current.next.next) {
     current = current.next;
   }
-  const value = current.next.value
+  const value = current.next.value;
   current.next = null;
   return value;
-}
+};
+
 LinkedList.prototype.search = function (params) {
-  if (!this.head) {
-    return null;
-  }
+  var value = this.head.value;
+  if (!this.head) return null;
   if (typeof params === 'function') {
-    if (params(this.head.value)) return this.head.value;
+    if (params(value)) return value;
   } else {
-    if (this.head.value === params) return this.head.value;
+    if (value === params) return value;
   }
   let current = this.head;
   while (current.next) {
@@ -65,8 +61,7 @@ LinkedList.prototype.search = function (params) {
     }
   }
   return null;
-}
-
+};
 
 function Node(value) {
   this.value = value;
@@ -92,13 +87,15 @@ function HashTable() {
   this.numBuckets = 35;
   this.data = new Array(this.numBuckets);
 }
+
 HashTable.prototype.hash = function (key) {
   let count = 0;
   for (let i = 0; i < key.length; i++) {
     count += key.charCodeAt(i);
   }
   return count % this.numBuckets;
-}
+};
+
 HashTable.prototype.set = function (key, value) {
   if (typeof key !== 'string') throw new TypeError('Keys must be strings');
   const bucket = this.hash(key);
@@ -106,22 +103,22 @@ HashTable.prototype.set = function (key, value) {
     this.data[bucket] = {};
   }
   this.data[bucket][key] = value;
-}
+};
+
 HashTable.prototype.get = function (key) {
   const bucket = this.hash(key);
-  if(this.data[bucket]) return this.data[bucket][key];
+  if (this.data[bucket]) return this.data[bucket][key];
   return undefined;
-}
+};
+
 HashTable.prototype.hasKey = function (key) {
-    const bucket = this.hash(key);
-    if(this.data[bucket]){
-      return this.data[bucket].hasOwnProperty(key)
-    }else{
-      return false;
-    }
-}
-
-
+  const bucket = this.hash(key);
+  if (this.data[bucket]) {
+    return this.data[bucket].hasOwnProperty(key);
+  } else {
+    return false;
+  }
+};
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
